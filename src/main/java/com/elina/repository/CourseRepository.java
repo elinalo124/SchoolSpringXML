@@ -1,10 +1,22 @@
 package com.elina.repository;
 
-import com.elina.model.Course;
-import org.springframework.data.repository.CrudRepository;
-
+import javax.transaction.Transactional;
+import java.io.Serializable;
 import java.util.List;
 
-public interface CourseRepository extends CrudRepository<Course, Long> {
-    List<Course> findByName(String name);
+public interface CourseRepository<T extends Serializable> {
+    void setClazz(Class<T> clazzToSet);
+
+    T findById(Long id);
+
+    List findAll();
+
+    @Transactional
+    void save(T entity);
+
+    T update(T entity);
+
+    void delete(T entity);
+
+    void deleteById(long entityId);
 }

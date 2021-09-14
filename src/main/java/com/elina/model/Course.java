@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.*;
 
 import javax.persistence.*;
+import java.io.Serializable;
 
 
 @Getter
@@ -11,7 +12,7 @@ import javax.persistence.*;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-public class Course {
+public class Course implements Serializable {
 
     @Id
     @EqualsAndHashCode.Include
