@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 public interface CourseService {
-    //@Autowired
+
     void setCourseRepository(CourseRepository repository);
 
     @Transactional
@@ -23,5 +23,5 @@ public interface CourseService {
     void deleteById(Long id);
 
     @Transactional
-    void update(Course newCourse);
+    void update(Course newCourse, Long id);
 }

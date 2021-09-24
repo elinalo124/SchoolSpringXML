@@ -3,7 +3,7 @@ package com.elina.repository;
 import java.io.Serializable;
 import java.util.List;
 
-public interface CourseRepository<T extends Serializable> {
+public interface DepartmentRepository <T extends Serializable>{
     void setClazz(Class<T> clazzToSet);
 
     T findById(Long id);

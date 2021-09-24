@@ -37,13 +37,6 @@ public class CourseServiceImpl implements CourseService {
         return (Course) repository.findById(id);
     }
 
-    /*
-    public List<Course> findByName(String name){
-        return repository.findByName(name);
-    }
-    */
-
-
     @Override
     @Transactional
     public List<Course> findAll(){
@@ -58,7 +51,8 @@ public class CourseServiceImpl implements CourseService {
 
     @Override
     @Transactional
-    public void update(Course newCourse) {
+    public void update(Course newCourse, Long id) {
+        newCourse.setId(id);
         repository.update(newCourse);
     }
 

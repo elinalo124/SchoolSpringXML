@@ -14,6 +14,19 @@
         <property name="courseRepository" ref="courseRepository"/>
     </bean>
 
+
+    <bean name="departmentRepository" class="com.elina.repository.DepartmentRepositoryImpl"/>
+
+    <bean name="departmentService" class="com.elina.service.DepartmentServiceImpl">
+        <property name="departmentRepository" ref="departmentRepository"/>
+    </bean>
+
+
+    <bean name="otherService" class="com.elina.service.OtherServiceImpl">
+        <property name="departmentRepository" ref="departmentRepository"/>
+        <property name="courseRepository" ref="courseRepository"/>
+    </bean>
+
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalEntityManagerFactoryBean">
         <property name="persistenceUnitName" value="Elina"/>
     </bean>

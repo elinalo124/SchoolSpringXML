@@ -40,8 +40,8 @@ public class CourseController {
     }
     //UPDATE
     @PutMapping("/courses/{id}")
-    public void replaceCourse(@RequestBody Course newCourse) {
-        courseService.update(newCourse);
+    public void replaceCourse(@RequestBody Course newCourse, @PathVariable("id") Long id) {
+        courseService.update(newCourse, id);
     }
 
     //DELETE

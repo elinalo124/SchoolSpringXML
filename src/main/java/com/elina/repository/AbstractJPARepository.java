@@ -32,7 +32,12 @@ public abstract class AbstractJPARepository< T extends Serializable> implements 
     @Override
     @Transactional
     public void save(T entity){
-        entityManager.persist( entity );
+        if (entityManager.contains(entity)) {
+            entityManager.merge(entity);
+        } else {
+            entityManager.persist(entity);
+        }
+        //entityManager.persist( entity );
     }
 
     @Override
